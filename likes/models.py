@@ -5,7 +5,7 @@ from django.contrib.contenttypes.fields import GenericForeignKey
 
 # Create your models here.
 class LikedItem(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='likes_liked_items')
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE, related_name='likes_liked_items_ct')
     object_id = models.PositiveIntegerField()
     content_object = GenericForeignKey()
